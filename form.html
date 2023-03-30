@@ -10,9 +10,14 @@
 		function checkFname() 
 		{
 			var f=document.frm.fname.value;
+			var re=/^[A-Za-z]+$/;
 			if (f=="")
 			{
 				document.getElementById("fname").innerHTML="Please Enter First Name";
+			}
+			else if(!re.test(f))
+			{
+				document.getElementById("fname").innerHTML="Please Enter only Alphabets";
 			}
 			else
 			{
