@@ -138,14 +138,17 @@
 		{
 			cp = document.frm.cpassword.value;
 			p = document.frm.password.value;
-
-			if(cp == p)
+			if(cp == "")
+			{
+				document.getElementById('cpwd').innerHTML="Please Enter confirm password";
+			}
+			else if(cp == p)
 			{
 				document.getElementById('cpwd').innerHTML="";
 			}
 			else
 			{
-				document.getElementById('cpwd').innerHTML="Password and confirm password is mismatch";
+				document.getElementById('cpwd').innerHTML="Password and confirm password does not matched";
 			}
 		}
 
