@@ -101,7 +101,53 @@
 			}
 		}
 
-		
+		function checkGender()
+		{
+			var gen = document.frm.gender.value;
+
+			if (gen==false)
+			{
+				document.getElementById('gender').innerHTML="Please Select Gender";
+			}
+			else
+			{
+				document.getElementById('gender').innerHTML="";
+			}
+		}
+
+		function checkPassword()
+		{
+			var p = document.frm.password.value;
+			var re=/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+			if(p=="")
+			{
+				document.getElementById('pwd').innerHTML="Please Enter password";
+			}
+			else if(!re.test(p))
+			{
+				document.getElementById('pwd').innerHTML="Password should be contain atleast one upper,lower and digit and special character with length of 8-15";
+			}
+			else
+			{
+				document.getElementById('pwd').innerHTML="";
+			}
+		}
+
+
+		function checkCPassword()
+		{
+			cp = document.frm.cpassword.value;
+			p = document.frm.password.value;
+
+			if(cp == p)
+			{
+				document.getElementById('cpwd').innerHTML="";
+			}
+			else
+			{
+				document.getElementById('cpwd').innerHTML="Password and confirm password is mismatch";
+			}
+		}
 
 	</script>
 
@@ -142,9 +188,10 @@
 		<tr>
 			<td>Gender</td>
 			<td>
-				<input type="radio" name="gender" value="male">Male
-				<input type="radio" name="gender" value="female">Female
+				<input type="radio" name="gender" value="male" onblur="checkGender();">Male
+				<input type="radio" name="gender" value="female" onblur="checkGender();">Female
 			</td>
+			<td><span id="gender"></span></td>
 		</tr>
 
 		<tr>
@@ -152,9 +199,11 @@
 			<td>
 				<input type="checkbox" name="hobby" value="cricket">Cricket<br>
 				<input type="checkbox" name="hobby" value="reading">Reading<br>
-				<input type="checkbox" name="hobby" value="music">Music<br>
-				<input type="checkbox" name="hobby" value="traveling">Traveling
+				<input type="checkbox" name="hobby" value="music" >Music<br>
+				<input type="checkbox" name="hobby" value="traveling">Traveling<br>
+				<input type="checkbox" name="hobby" value="other">Other
 			</td>
+			<td><span id="hobby"></span></td>
 		</tr>
 
 		<tr>
@@ -196,15 +245,17 @@
 		<tr>
 			<td>Password</td>
 			<td>
-				<input type="password" name="password">
+				<input type="password" name="password" onblur="checkPassword();">
 			</td>
+			<td><span id="pwd"></span></td>
 		</tr>
 
 		<tr>
 			<td>Confirm Password</td>
 			<td>
-				<input type="password" name="cpassword">
+				<input type="password" name="cpassword" onblur="checkCPassword();">
 			</td>
+			<td><span id="cpwd"></span></td>
 		</tr>
 
 		<tr>
