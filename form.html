@@ -23,8 +23,25 @@
 			{
 				document.getElementById("fname").innerHTML="";
 			}
+		}
 
+		function checkLname()
+		 {
+			var l=document.frm.lname.value;
+			var re=/^[A-Za-Z]+$/;
 
+			if (l=="")
+			{
+				document.getElementById('lname').innerHTML="Please Enter Last Name";
+			}
+			else if(!re.test(l))
+			{
+				document.getElementById('lname').innerHTML="Please Enter only Alphabets";
+			}
+			else
+			{
+				document.getElementById('lname').innerHTML="";
+			}
 		}
 
 	</script>
@@ -36,27 +53,30 @@
 		<tr>
 			<td>First Name</td>
 			<td><input type="text" name="fname" onblur="checkFname();"></td>
-			<td><span id="fname"></span></td>
+			<td>
+				<span id="fname"></span>
+			</td>
 		</tr>
 
 		<tr>
 			<td>Last Name</td>
-			<td><input type="text",name="lname"></td>
+			<td><input type="text" name="lname" onblur="checkLname();"></td>
+			<td><span id="lname"></span></td>
 		</tr>
 
 		<tr>
 			<td>Email</td>
-			<td><input type="text",name="email"></td>
+			<td><input type="text" name="email"></td>
 		</tr>
 
 		<tr>
 			<td>Mobile Number</td>
-			<td><input type="text",name="mobile"></td>
+			<td><input type="text" name="mobile"></td>
 		</tr>
 
 		<tr>
 			<td>Address</td>
-			<td><textarea rows="5", cols="21",Name="address"></textarea></td>
+			<td><textarea rows="5" cols="21" Name="address"></textarea></td>
 		</tr>
 
 		<tr>
