@@ -49,13 +49,37 @@
 		function checkEmail()
 		{
 			var e=document.frm.email.value;
+			var re=/^[A-Za-z0-9._-]+@[A-Za-z]+\.+[A-Za-z]{2,4}$/;
 			if(e=="")
 			{
 				document.getElementById('email').innerHTML="Enter Email ID";
 			}
+			else if(!re.test(e))
+			{
+				document.getElementById('email').innerHTML="Please Enter Correct Email ID";
+			}
 			else
 			{
 				document.getElementById('email').innerHTML="";	
+			}
+		}
+
+		function checkMobile()
+		{
+			var m = document.frm.mobile.value;
+			var re=/^[0-9]{10}$/;
+
+			if(m=="")
+			{
+				document.getElementById('mobile').innerHTML="Enter Mobile Number";
+			}
+			else if(!re.test(m))
+			{
+				document.getElementById('mobile').innerHTML="Enter 10 digit Mobile Number";
+			}
+			else
+			{
+				document.getElementById('mobile').innerHTML="";
 			}
 		}
 		
@@ -85,7 +109,8 @@
 
 		<tr>
 			<td>Mobile Number</td>
-			<td><input type="text" name="mobile"></td>
+			<td><input type="text" name="mobile" onblur="checkMobile();"></td>
+			<td><span id="mobile"></span></td>
 		</tr>
 
 		<tr>
