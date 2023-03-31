@@ -83,6 +83,26 @@
 			}
 		}
 		
+		function checkAddress()
+		{
+			var a=document.frm.address.value;
+			var re=/^[0-9A-Za-z-.,'\s]+$/;
+			if(a=="")
+			{
+				document.getElementById('address').innerHTML="Please Enter Address";
+			}
+			else if(!re.test(a))
+			{
+				document.getElementById('address').innerHTML="Special Symbol is not allowed in Address";
+			}
+			else
+			{
+				document.getElementById('address').innerHTML="";
+			}
+		}
+
+		
+
 	</script>
 
 </head>
@@ -115,7 +135,8 @@
 
 		<tr>
 			<td>Address</td>
-			<td><textarea rows="5" cols="21" Name="address"></textarea></td>
+			<td><textarea rows="5" cols="21" Name="address" onblur="checkAddress();"></textarea></td>
+			<td><span id="address"></span></td>
 		</tr>
 
 		<tr>
