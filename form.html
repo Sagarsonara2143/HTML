@@ -13,37 +13,52 @@
 			var re=/^[A-Za-z]+$/;
 			if (f=="")
 			{
-				document.getElementById("fname").innerHTML="Please Enter First Name";
+				document.getElementById('fname').innerHTML="Enter First Name";
 			}
 			else if(!re.test(f))
 			{
-				document.getElementById("fname").innerHTML="Please Enter only Alphabets";
+				document.getElementById('fname').innerHTML="Enter Only Alphabets";
 			}
 			else
 			{
-				document.getElementById("fname").innerHTML="";
+				document.getElementById('fname').innerHTML="";
 			}
 		}
 
+
 		function checkLname()
-		 {
-			var l=document.frm.lname.value;
-			var re=/^[A-Za-Z]+$/;
+		{
+			var l= document.frm.lname.value;
+			var re = /^[A-Za-z]+$/;
 
 			if (l=="")
 			{
-				document.getElementById('lname').innerHTML="Please Enter Last Name";
+				document.getElementById('lname').innerHTML="Enter Last Name";
 			}
 			else if(!re.test(l))
 			{
-				document.getElementById('lname').innerHTML="Please Enter only Alphabets";
+				document.getElementById('lname').innerHTML="Enter only Alphabets";
 			}
 			else
 			{
 				document.getElementById('lname').innerHTML="";
 			}
+
 		}
 
+		function checkEmail()
+		{
+			var e=document.frm.email.value;
+			if(e=="")
+			{
+				document.getElementById('email').innerHTML="Enter Email ID";
+			}
+			else
+			{
+				document.getElementById('email').innerHTML="";	
+			}
+		}
+		
 	</script>
 
 </head>
@@ -53,9 +68,7 @@
 		<tr>
 			<td>First Name</td>
 			<td><input type="text" name="fname" onblur="checkFname();"></td>
-			<td>
-				<span id="fname"></span>
-			</td>
+			<td><span id="fname"></span></td>
 		</tr>
 
 		<tr>
@@ -66,7 +79,8 @@
 
 		<tr>
 			<td>Email</td>
-			<td><input type="text" name="email"></td>
+			<td><input type="text" name="email" onblur="checkEmail();"></td>
+			<td><span id="email"></span></td>
 		</tr>
 
 		<tr>
